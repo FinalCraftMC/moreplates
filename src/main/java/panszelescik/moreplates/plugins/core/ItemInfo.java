@@ -69,6 +69,9 @@ public enum ItemInfo {
     DRACONIUM("Draconium"),
     AWAKENED_DRACONIUM("DraconiumAwakened"),
 
+    SAKURADITE("ingotSakuradite"),
+    ENEUTRONIUM("ingotNeutronium"),
+
     CONDUCTIVE_IRON("ConductiveIron"),
     CRUDE_STEEL("CrudeSteel"),
     CRYSTALLINE_ALLOY("CrystallineAlloy"),
