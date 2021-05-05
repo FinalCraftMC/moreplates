@@ -2,8 +2,7 @@ package panszelescik.moreplates.plugins.helpers;
 
 import panszelescik.moreplates.MorePlates;
 import panszelescik.moreplates.config.Config;
-import reborncore.api.recipe.RecipeHandler;
-import techreborn.api.recipe.machines.CompressorRecipe;
+import techreborn.api.recipe.Recipes;
 
 import static panszelescik.moreplates.plugins.core.ItemInfo.Type.*;
 
@@ -14,7 +13,7 @@ public class TechRebornHelper extends PluginHelper {
     public static void add(String output, String input, boolean plate) {
         if (oreNameExists(input) && plate && oreNameExists(PLATE + output)) {
             MorePlates.logger.debug("Adding Compressor recipe for: " + getItemName(PLATE + output) + " from: " + getItemName(input));
-            RecipeHandler.addRecipe(new CompressorRecipe(input, get(PLATE + output), timeCompressor(), energyCompressor()));
+            Recipes.compressor.createRecipe().withInput(input).withOutput(get(PLATE + output)).withEnergyCostPerTick(energyCompressor()).withOperationDuration(timeCompressor()).register();
 
             CompressorRecipes += 1;
         }
@@ -23,7 +22,7 @@ public class TechRebornHelper extends PluginHelper {
     public static void add(String output, String input) {
         if (oreNameExists(input) && oreNameExists(PLATE + output)) {
             MorePlates.logger.debug("Adding Compressor recipe for: " + getItemName(PLATE + output) + " from: " + getItemName(input));
-            RecipeHandler.addRecipe(new CompressorRecipe(input, get(PLATE + output), timeCompressor(), energyCompressor()));
+            Recipes.compressor.createRecipe().withInput(input).withOutput(get(PLATE + output)).withEnergyCostPerTick(energyCompressor()).withOperationDuration(timeCompressor()).register();
 
             CompressorRecipes += 1;
         }
@@ -32,7 +31,7 @@ public class TechRebornHelper extends PluginHelper {
     public static void add(String output, String input, String id, int meta) {
         if (notNull(id, input, meta)) {
             MorePlates.logger.debug("Adding Compressor recipe for: " + getItemName(PLATE + output) + " from: " + getItemName(id, input, 1, meta));
-            RecipeHandler.addRecipe(new CompressorRecipe(get(id, input, 1, meta), get(PLATE + output), timeCompressor(), energyCompressor()));
+            Recipes.compressor.createRecipe().withInput(get(id, input, 1, meta)).withOutput(get(PLATE + output)).withEnergyCostPerTick(energyCompressor()).withOperationDuration(timeCompressor()).register();
 
             CompressorRecipes += 1;
         }
@@ -41,7 +40,7 @@ public class TechRebornHelper extends PluginHelper {
     public static void addBlock(String name, int amount, boolean plate) {
         if (oreNameExists(BLOCK + name) && plate && oreNameExists(PLATE + name)) {
             MorePlates.logger.debug("Adding Compressor recipe for: " + getItemName(PLATE + name) + " x" + amount + " from: " + getItemName(BLOCK + name));
-            RecipeHandler.addRecipe(new CompressorRecipe(BLOCK + name, get(PLATE + name, amount), timeCompressor(), energyCompressor()));
+            Recipes.compressor.createRecipe().withInput(BLOCK + name).withOutput(get(PLATE + name, amount)).withEnergyCostPerTick(energyCompressor()).withOperationDuration(timeCompressor()).register();
 
             CompressorRecipes += 1;
         }
@@ -50,7 +49,7 @@ public class TechRebornHelper extends PluginHelper {
     public static void addBlock(String name, int amount) {
         if (oreNameExists(BLOCK + name) && oreNameExists(PLATE + name)) {
             MorePlates.logger.debug("Adding Compressor recipe for: " + getItemName(PLATE + name) + " x" + amount + " from: " + getItemName(BLOCK + name));
-            RecipeHandler.addRecipe(new CompressorRecipe(BLOCK + name, get(PLATE + name, amount), timeCompressor(), energyCompressor()));
+            Recipes.compressor.createRecipe().withInput(BLOCK + name).withOutput(get(PLATE + name, amount)).withEnergyCostPerTick(energyCompressor()).withOperationDuration(timeCompressor()).register();
 
             CompressorRecipes += 1;
         }
@@ -59,7 +58,7 @@ public class TechRebornHelper extends PluginHelper {
     public static void addBlock(String output, String input, int amount, String id) {
         if (notNull(id, input) && oreNameExists(PLATE + output)) {
             MorePlates.logger.debug("Adding Compressor recipe for: " + getItemName(PLATE + output) + " x" + amount + " from: " + getItemName(id, input));
-            RecipeHandler.addRecipe(new CompressorRecipe(get(id, input), get(PLATE + output, amount), timeCompressor(), energyCompressor()));
+            Recipes.compressor.createRecipe().withInput(get(id, input)).withOutput(get(PLATE + output, amount)).withEnergyCostPerTick(energyCompressor()).withOperationDuration(timeCompressor()).register();
 
             CompressorRecipes += 1;
         }
@@ -68,7 +67,7 @@ public class TechRebornHelper extends PluginHelper {
     public static void addBlock(String output, String input, int amount, String id, int meta) {
         if (notNull(id, input, meta) && oreNameExists(PLATE + output)) {
             MorePlates.logger.debug("Adding Compressor recipe for: " + getItemName(PLATE + output) + " x" + amount + " from: " + getItemName(id, input, 1, meta));
-            RecipeHandler.addRecipe(new CompressorRecipe(get(id, input, 1, meta), get(PLATE + output, amount), timeCompressor(), energyCompressor()));
+            Recipes.compressor.createRecipe().withInput(get(id, input, 1, meta)).withOutput(get(PLATE + output, amount)).withEnergyCostPerTick(energyCompressor()).withOperationDuration(timeCompressor()).register();
 
             CompressorRecipes += 1;
         }
